@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'testapi',
     'rest_framework',
     'dynamic_rest',
+    'django_nose',
 ) + (
     ('testapi.badapi', 'testapp.badapp')
     if os.environ.get('WITH_BADAPP', "false").lower().strip() == 'true'
@@ -169,5 +170,9 @@ try:  # pragma: nocover
     import teamcity
     if teamcity.is_running_under_teamcity():  # pragma: nocover
         TEST_RUNNER = "teamcity.django.TeamcityDjangoRunner"
+    else:
+        TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 except ImportError:  # pragma: nocover
     pass
+
+NOSE_ARGS = ['--with-doctest']

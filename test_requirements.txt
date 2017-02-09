@@ -1,1 +1,3 @@
 teamcity-messages
+nose
+django-nose

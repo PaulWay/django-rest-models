@@ -10,11 +10,6 @@ import rest_models.utils
 from rest_models.utils import JsonFixtures
 
 
-def load_tests(loader, tests, ignore):
-    tests.addTests(doctest.DocTestSuite(rest_models.utils))
-    return tests
-
-
 PARTIAL_DATA_FIXTURES = str(os.path.join(os.path.dirname(__file__), 'rest_fixtures', 'data_test_fixtures.json'))
 FULL_TEST_FIXTURES = str(os.path.join(os.path.dirname(__file__), 'rest_fixtures', 'full_test_fixtures.json'))
 
